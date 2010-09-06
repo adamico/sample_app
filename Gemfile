@@ -20,6 +20,8 @@ group :test do
   gem "ZenTest"
   gem "autotest-notification"
   gem "autotest-rails"
+  gem 'spork', '0.8.4'
+  gem "webrat"
 end
 
 group :test, :development do
