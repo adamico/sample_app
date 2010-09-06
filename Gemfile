@@ -17,6 +17,9 @@ gem "haml"
 
 group :test do
   gem 'factory_girl_rails'
+  gem "ZenTest"
+  gem "autotest-notification"
+  gem "autotest-rails"
 end
 
 group :test, :development do
