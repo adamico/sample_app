@@ -10,6 +10,8 @@ group :development do
   gem "nifty-generators"
   gem "rails3-generators"
   gem "haml-rails"
+  gem "wirble"
+  gem "hirb"
 end
 
 

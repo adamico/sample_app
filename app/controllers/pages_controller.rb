@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   end
 
   def about
-    @title = "About Us"
+    @title = "About"
   end
 
   def help
