@@ -16,6 +16,7 @@ end
 
 
 gem "haml"
+gem "compass", ">= 0.10.5"
 
 group :test do
   gem 'factory_girl_rails'
