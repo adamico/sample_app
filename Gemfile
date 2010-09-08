@@ -5,6 +5,10 @@ gem 'rails', '3.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem "haml"
+gem "compass", ">= 0.10.5"
+gem "gravatar_image_tag", "0.1.0"
+
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
   gem "nifty-generators"
@@ -15,9 +19,6 @@ group :development do
   gem 'annotate-models', '1.0.4'
 end
 
-
-gem "haml"
-gem "compass", ">= 0.10.5"
 
 group :test do
   gem 'factory_girl_rails'

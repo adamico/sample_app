@@ -1,6 +1,16 @@
 - title @title, false
 
-%h1= @user.name
+%table.profile{:summary => "Profile information"}
+  %tr
+    %td.main
+      %h1
+        = gravatar_for @user
+        = @user.name
+    %td{:class => "sidebar round"}
+      %strong Name
+      = @user.name
+      %br/
+      %strong URL
+      = link_to user_path(@user), @user
 
-%p= @user.name
-%p= @user.email
+
