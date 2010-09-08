@@ -12,6 +12,7 @@ group :development do
   gem "haml-rails"
   gem "wirble"
   gem "hirb"
+  gem 'annotate-models', '1.0.4'
 end
 
 
