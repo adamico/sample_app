@@ -171,7 +171,7 @@ td.sidebar {
   font-weight: bold;
   padding: 5px 5px 5px 15px;
   font-size: 12px;
-  margin: -7px;
+  margin: 0;
   background-color: #cc0000;
   color: white;
 }
@@ -179,10 +179,32 @@ td.sidebar {
 #error_explanation p {
   color: #333333;
   margin-bottom: 0;
-  padding: 5px;
+  padding: 8px;
 }
 /* line 133, sass/custom.sass */
+#error_explanation ul {
+  margin: 2px 24px;
+}
+/* line 135, sass/custom.sass */
 #error_explanation ul li {
   font-size: 12px;
-  list-style: square;
+  list-style: disc;
+}
+
+/* line 139, sass/custom.sass */
+.flash {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+/* line 143, sass/custom.sass */
+.notice, .success {
+  background-color: #ccffcc;
+  border: solid 1px #66cc66;
+}
+
+/* line 147, sass/custom.sass */
+.error {
+  background-color: #ffcccc;
+  border: solid 1px #cc6666;
 }

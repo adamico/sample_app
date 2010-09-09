@@ -8,6 +8,12 @@ module LayoutHelper
       image_tag(image_src, :alt => alt, :class => css_class)
     end
   end
+
+  def link_to_signin_or_out
+    title, path = signed_in? ? ["Sign out", signout_path] : ["Sign in", signin_path]
+    link_to title, path
+  end
+
   def title(page_title, show_title = true)
     base_title = "Ruby on Rails Tutorial Sample App"
     page_title = @title.nil? ? base_title : base_title + " | " + @title
