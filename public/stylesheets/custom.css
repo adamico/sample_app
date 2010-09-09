@@ -138,3 +138,51 @@ td.sidebar {
   border: 1px solid #999999;
   margin-bottom: -15px;
 }
+
+/* line 103, sass/custom.sass */
+.field, .actions {
+  margin-bottom: 10px;
+}
+
+/* line 106, sass/custom.sass */
+.field_with_errors {
+  margin-top: 10px;
+  padding: 2px;
+  background: red;
+  display: table;
+}
+/* line 111, sass/custom.sass */
+.field_with_errors label {
+  color: white;
+}
+
+/* line 114, sass/custom.sass */
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 121, sass/custom.sass */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #cc0000;
+  color: white;
+}
+/* line 129, sass/custom.sass */
+#error_explanation p {
+  color: #333333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+/* line 133, sass/custom.sass */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
