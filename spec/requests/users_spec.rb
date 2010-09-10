@@ -38,12 +38,12 @@ describe "Users" do
   describe "sign in and out" do
     before(:each) do
       @user = Factory(:user)
-      visit signin_path
     end
 
     describe "sign in" do
       context "with invalid email/password" do
         it "should not sign a user in" do
+          visit signin_path
           fill_in :email,       :with => ""
           fill_in :password,    :with => ""
           click_button
@@ -52,16 +52,13 @@ describe "Users" do
       end
 
       context "with valid email/password" do
+        before(:each) do
+          integration_sign_in(@user)
+        end
         it "should sign a user in" do
-          fill_in :email,       :with => @user.email
-          fill_in :password,    :with => @user.password
-          click_button
           controller.should be_signed_in
         end
         it "should enable signing out" do
-          fill_in :email,       :with => @user.email
-          fill_in :password,    :with => @user.password
-          click_button
           click_link "Sign out"
           controller.should_not be_signed_in
         end
