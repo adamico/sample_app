@@ -2,7 +2,10 @@
   = link_to_logo
   %nav.round
     %ul
-      %li= link_to "Profile", current_user if signed_in?
+      - if signed_in?
+        %li= link_to "users", users_path
+        %li= link_to "Profile", current_user
+        %li= link_to "Settings", edit_user_path(current_user)
       %li= link_to "Help", help_path
       %li
         = link_to_signin_or_out

@@ -1,0 +1,10 @@
+- title @title, false
+
+%h1 Edit user
+
+= render 'form', :user => @user, :submit_label => "Update"
+
+.gravatar
+  = gravatar_for @user
+  %a{:href => "http://gravatar.com/emails"} change
+

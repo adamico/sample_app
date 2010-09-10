@@ -208,3 +208,12 @@ td.sidebar {
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
+
+/* line 151, sass/custom.sass */
+ul.users {
+  margin-top: 1em;
+}
+/* line 153, sass/custom.sass */
+ul.users li {
+  list-style: none;
+}
