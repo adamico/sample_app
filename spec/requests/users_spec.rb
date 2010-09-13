@@ -71,10 +71,17 @@ describe "Users" do
       @user = Factory(:user)
     end
     context "when user is an admin" do
-      it "should show links to destroy users" do
-        admin = Factory(:user, :admin => true)
+      let(:admin) {Factory(:user, :admin => true)}
+
+      before(:each) do
         integration_sign_in(admin)
         visit users_path
+      end
+      it "should show links to destroy users" do
+        response.should have_selector("a", :href => "/users/#{@user.id}", "data-confirm" => "Are you sure?", "data-method" => "delete", :title => "Delete #{@user.name}", :content => "delete")
+      end
+      it "should hide link to destroy himself" do
+        response.should_not have_selector("a", :href => "/users/#{admin.id}", "data-confirm" => "Are you sure?", "data-method" => "delete", :title => "Delete #{admin.name}", :content => "delete")
       end
     end
     context "when user is not admin" do
