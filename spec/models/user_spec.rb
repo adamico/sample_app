@@ -97,4 +97,24 @@ describe User do
       User.new(hash).should_not be_valid
     end
   end
+
+  describe "#admin" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should exist" do
+      @user.should respond_to(:admin)
+    end
+
+    it "should not be true by default" do
+      @user.should_not be_admin
+    end
+
+    it "should be toggable" do
+      @user.toggle!(:admin)
+      @user.should be_admin
+    end
+  end
 end
