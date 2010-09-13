@@ -46,7 +46,7 @@ nav
     margin: 0
     padding: 0
     li
-      list-style-type: none
+      list-style: none
       display: inline-block
       padding: 0.2em 0
       a
@@ -82,24 +82,31 @@ footer
     float: none
 
 // User show page
-table.profile
-  width: 100%
+.profile
   margin-bottom: 0
+  img.gravatar
+    border: 1px solid #999
+    margin-bottom: -15px
 
-td.main
-  width: 60%
+.main
+  float: left
+  width: 50%
   padding: 1em
 
-td.sidebar
+.sidebar
+  float: right
   width: 30%
   padding: 1em
-  vertical-align: top
   background: #ffc
+  ul li
+    list-style: none
 
-.profile img.gravatar
-  border: 1px solid #999
-  margin-bottom: -15px
+ul.microposts
+  clear: both
+  li
+    list-style: none
 
+// Other stuff
 .field, .actions
   margin-bottom: 10px
 

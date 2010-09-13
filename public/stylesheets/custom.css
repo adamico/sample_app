@@ -68,7 +68,7 @@ nav ul {
 }
 /* line 48, sass/custom.sass */
 nav ul li {
-  list-style-type: none;
+  list-style: none;
   display: inline-block;
   padding: 0.2em 0;
 }
@@ -114,49 +114,61 @@ footer nav {
 }
 
 /* line 85, sass/custom.sass */
-table.profile {
-  width: 100%;
+.profile {
   margin-bottom: 0;
 }
-
-/* line 89, sass/custom.sass */
-td.main {
-  width: 60%;
-  padding: 1em;
-}
-
-/* line 93, sass/custom.sass */
-td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffffcc;
-}
-
-/* line 99, sass/custom.sass */
+/* line 87, sass/custom.sass */
 .profile img.gravatar {
   border: 1px solid #999999;
   margin-bottom: -15px;
 }
 
-/* line 103, sass/custom.sass */
+/* line 91, sass/custom.sass */
+.main {
+  float: left;
+  width: 50%;
+  padding: 1em;
+}
+
+/* line 96, sass/custom.sass */
+.sidebar {
+  float: right;
+  width: 30%;
+  padding: 1em;
+  background: #ffffcc;
+}
+/* line 101, sass/custom.sass */
+.sidebar ul li {
+  list-style: none;
+}
+
+/* line 104, sass/custom.sass */
+ul.microposts {
+  clear: both;
+}
+/* line 106, sass/custom.sass */
+ul.microposts li {
+  list-style: none;
+}
+
+/* line 110, sass/custom.sass */
 .field, .actions {
   margin-bottom: 10px;
 }
 
-/* line 106, sass/custom.sass */
+/* line 113, sass/custom.sass */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
   background: red;
   display: table;
 }
-/* line 111, sass/custom.sass */
+/* line 118, sass/custom.sass */
 .field_with_errors label {
   color: white;
 }
 
-/* line 114, sass/custom.sass */
+/* line 121, sass/custom.sass */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -165,7 +177,7 @@ td.sidebar {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 121, sass/custom.sass */
+/* line 128, sass/custom.sass */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -175,45 +187,45 @@ td.sidebar {
   background-color: #cc0000;
   color: white;
 }
-/* line 129, sass/custom.sass */
+/* line 136, sass/custom.sass */
 #error_explanation p {
   color: #333333;
   margin-bottom: 0;
   padding: 8px;
 }
-/* line 133, sass/custom.sass */
+/* line 140, sass/custom.sass */
 #error_explanation ul {
   margin: 2px 24px;
 }
-/* line 135, sass/custom.sass */
+/* line 142, sass/custom.sass */
 #error_explanation ul li {
   font-size: 12px;
   list-style: disc;
 }
 
-/* line 139, sass/custom.sass */
+/* line 146, sass/custom.sass */
 .flash {
   padding: 5px 8px;
   margin: 10px 0;
 }
 
-/* line 143, sass/custom.sass */
+/* line 150, sass/custom.sass */
 .notice, .success {
   background-color: #ccffcc;
   border: solid 1px #66cc66;
 }
 
-/* line 147, sass/custom.sass */
+/* line 154, sass/custom.sass */
 .error {
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
 
-/* line 151, sass/custom.sass */
+/* line 158, sass/custom.sass */
 ul.users {
   margin-top: 1em;
 }
-/* line 153, sass/custom.sass */
+/* line 160, sass/custom.sass */
 ul.users li {
   list-style: none;
 }

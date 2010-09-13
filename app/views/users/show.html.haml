@@ -1,16 +1,23 @@
 - title @title, false
 
-%table.profile{:summary => "Profile information"}
-  %tr
-    %td.main
-      %h1
-        = gravatar_for @user
-        = @user.name
-    %td{:class => "sidebar round"}
-      %strong Name
+.profile
+  .main
+    %h1
+      = gravatar_for @user
       = @user.name
-      %br/
-      %strong URL
-      = link_to user_path(@user), @user
-
-
+  %div{:class => "sidebar round"}
+    %ul
+      %li
+        %strong Name
+        = @user.name
+      %li
+        %strong URL
+        = link_to user_path(@user), @user
+      %li
+        %strong Microposts
+        = @user.microposts.count
+  %ul.microposts
+    - unless @user.microposts.empty?
+      - @user.microposts.each do |mp|
+        %li
+          %span.content= mp.content
