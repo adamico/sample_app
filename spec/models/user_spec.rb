@@ -101,13 +101,26 @@ describe User do
   end
 
   describe "#microposts" do
+    before(:each) do
+      @user = Factory(:user)
+      mp1 = Factory(:micropost, :user => @user)
+      mp2 = Factory(:micropost, :user => @user)
+      @mps = [mp1, mp2]
+    end
+    
     it "should exist" do
-      subject.should respond_to(:microposts)
+      @user.should respond_to(:microposts)
     end
     it "should list associated microposts newest first" do
-      mp1 = Factory(:micropost, :user => subject)
-      mp2 = Factory(:micropost, :user => subject)
-      subject.microposts.should == [mp2, mp1]
+      @user.microposts.should == @mps.reverse
+    end
+    it "should be destroyed when user is" do
+      @user.destroy
+      @mps.each do |micropost|
+        expect do
+          Micropost.find(micropost.id).should be_nil
+        end.should raise_error(ActiveRecord::RecordNotFound)
+      end
     end
   end
 end
