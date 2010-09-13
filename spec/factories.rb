@@ -4,3 +4,9 @@ Factory.define :user do |f|
   f.password              "foobar"
   f.password_confirmation "foobar"
 end
+
+Factory.define :micropost do |f|
+  f.content "value for content"
+  f.association :user
+end
+
