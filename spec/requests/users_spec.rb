@@ -65,4 +65,24 @@ describe "Users" do
       end
     end
   end
+
+  describe "destroying users" do
+    before(:each) do
+      @user = Factory(:user)
+    end
+    context "when user is an admin" do
+      it "should show links to destroy users" do
+        admin = Factory(:user, :admin => true)
+        integration_sign_in(admin)
+        visit users_path
+      end
+    end
+    context "when user is not admin" do
+      it "should not show links to destroy users" do
+        integration_sign_in(@user)
+        visit users_path
+        response.should_not have_selector("a", :href => "/users/#{@user.id}", "data-confirm" => "Are you sure?", "data-method" => "delete", :title => "Delete #{@user.name}", :content => "delete")
+      end
+    end
+  end
 end
