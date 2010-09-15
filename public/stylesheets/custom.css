@@ -15,78 +15,83 @@ header {
   padding-top: 20px;
 }
 /* line 11, sass/custom.sass */
+header .logo {
+  float: left;
+}
+/* line 13, sass/custom.sass */
 header img {
   padding: 1em;
   background: white;
 }
 
-/* line 15, sass/custom.sass */
+/* line 17, sass/custom.sass */
 section {
+  clear: both;
   margin-top: 1em;
   font-size: 120%;
   padding: 20px;
   background: white;
 }
-/* line 20, sass/custom.sass */
+/* line 23, sass/custom.sass */
 section h1 {
   font-size: 200%;
 }
 
-/* line 24, sass/custom.sass */
+/* line 27, sass/custom.sass */
 .round {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
 
-/* line 30, sass/custom.sass */
+/* line 33, sass/custom.sass */
 a {
   color: #0099cc;
   text-decoration: none;
 }
-/* line 33, sass/custom.sass */
+/* line 36, sass/custom.sass */
 a:hover {
   color: #006699;
   text-decoration: underline;
 }
-/* line 36, sass/custom.sass */
+/* line 39, sass/custom.sass */
 a:visited {
   color: #006699;
 }
 
-/* line 40, sass/custom.sass */
+/* line 43, sass/custom.sass */
 nav {
   float: right;
   background: white;
   padding: 0 0.7em;
   white-space: nowrap;
 }
-/* line 45, sass/custom.sass */
+/* line 48, sass/custom.sass */
 nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 48, sass/custom.sass */
+/* line 51, sass/custom.sass */
 nav ul li {
   list-style: none;
   display: inline-block;
   padding: 0.2em 0;
 }
-/* line 52, sass/custom.sass */
+/* line 55, sass/custom.sass */
 nav ul li a {
   padding: 0 5px;
   font-weight: bold;
 }
-/* line 55, sass/custom.sass */
+/* line 58, sass/custom.sass */
 nav ul li a:visited {
   color: #0099cc;
 }
-/* line 57, sass/custom.sass */
+/* line 60, sass/custom.sass */
 nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* line 61, sass/custom.sass */
+/* line 64, sass/custom.sass */
 a.signup_button {
   margin-left: auto;
   margin-right: auto;
@@ -100,75 +105,202 @@ a.signup_button {
   padding: 20px;
 }
 
-/* line 74, sass/custom.sass */
+/* line 77, sass/custom.sass */
 footer {
+  clear: both;
   text-align: center;
   margin-top: 10px;
   width: 710px;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 81, sass/custom.sass */
+/* line 85, sass/custom.sass */
 footer nav {
   float: none;
 }
 
-/* line 85, sass/custom.sass */
+/* line 89, sass/custom.sass */
 .profile {
+  overflow-x: auto;
   margin-bottom: 0;
 }
-/* line 87, sass/custom.sass */
+/* line 92, sass/custom.sass */
 .profile img.gravatar {
   border: 1px solid #999999;
   margin-bottom: -15px;
 }
 
-/* line 91, sass/custom.sass */
+/* line 96, sass/custom.sass */
 .main {
   float: left;
   width: 50%;
   padding: 1em;
 }
 
-/* line 96, sass/custom.sass */
+/* line 101, sass/custom.sass */
 .sidebar {
   float: right;
   width: 30%;
   padding: 1em;
   background: #ffffcc;
 }
-/* line 101, sass/custom.sass */
+/* line 106, sass/custom.sass */
 .sidebar ul li {
   list-style: none;
 }
 
-/* line 104, sass/custom.sass */
+/* line 109, sass/custom.sass */
 ul.microposts {
+  margin-top: 1em;
   clear: both;
 }
-/* line 106, sass/custom.sass */
+/* line 112, sass/custom.sass */
 ul.microposts li {
+  border-top: 1px solid #cccccc;
+  padding-top: 10px;
   list-style: none;
+  position: relative;
+}
+/* line 118, sass/custom.sass */
+ul.microposts li span.gravatar {
+  display: block;
+  position: absolute;
+  height: 50px;
+  left: 0px;
+  width: 50px;
+  overflow: hidden;
+}
+/* line 125, sass/custom.sass */
+ul.microposts li span.micropost {
+  display: block;
+  margin-left: 56px;
+  min-height: 48px;
+  width: 200px;
+  overflow: visible;
+  font-size: 0.8em;
+}
+/* line 132, sass/custom.sass */
+ul.microposts li span.micropost .user {
+  font-weight: bold;
+}
+/* line 134, sass/custom.sass */
+ul.microposts li span.micropost .timestamp {
+  display: block;
+  font-size: small;
+  margin-top: 2px;
+  color: #666666;
+}
+/* line 139, sass/custom.sass */
+ul.microposts li span.delete_link {
+  float: right;
+  display: block;
+  position: absolute;
+  right: 0px;
+  bottom: 2px;
+  height: auto;
+  overflow: visible;
+  font-size: small;
+}
+/* line 148, sass/custom.sass */
+ul.microposts li ul.inline {
+  position: relative;
+}
+/* line 150, sass/custom.sass */
+ul.microposts li ul.inline li {
+  border-top: 0px;
+  display: inline-block;
+}
+/* line 153, sass/custom.sass */
+ul.microposts li ul.inline li span.timestamp {
+  display: block;
+  font-size: 85%;
+  color: #666666;
+}
+/* line 157, sass/custom.sass */
+ul.microposts li ul.inline li.delete_link {
+  position: absolute;
+  bottom: 0;
+  right: 1px;
+  padding-left: 1em;
+  border-top: 0px;
 }
 
-/* line 110, sass/custom.sass */
+/* line 164, sass/custom.sass */
+.pagination {
+  clear: both;
+}
+
+/* line 168, sass/custom.sass */
+.front {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* line 172, sass/custom.sass */
+h1.micropost {
+  margin-bottom: 0.3em;
+}
+
+/* line 176, sass/custom.sass */
+ul.feeds li {
+  list-style: none;
+  display: inline-block;
+  border-top: 1px solid #cccccc;
+}
+
+/* line 182, sass/custom.sass */
+ul.feed_item li {
+  list-style: none;
+  display: inline-block;
+  border: none;
+}
+
+/* line 189, sass/custom.sass */
+.user_info img {
+  padding-right: 0.1em;
+}
+/* line 191, sass/custom.sass */
+.user_info a {
+  text-decoration: none;
+@feed_items = [];
+}
+/* line 194, sass/custom.sass */
+.user_info span.user_name {
+  position: absolute;
+}
+/* line 196, sass/custom.sass */
+.user_info span.microposts {
+  font-size: 80%;
+}
+
+/* line 200, sass/custom.sass */
+form.new_micropost {
+  margin-bottom: 2em;
+}
+/* line 202, sass/custom.sass */
+form.new_micropost textarea {
+  height: 4em;
+  margin-bottom: 0;
+}
+
+/* line 207, sass/custom.sass */
 .field, .actions {
   margin-bottom: 10px;
 }
 
-/* line 113, sass/custom.sass */
+/* line 210, sass/custom.sass */
 .field_with_errors {
   margin-top: 10px;
   padding: 2px;
   background: red;
   display: table;
 }
-/* line 118, sass/custom.sass */
+/* line 215, sass/custom.sass */
 .field_with_errors label {
   color: white;
 }
 
-/* line 121, sass/custom.sass */
+/* line 218, sass/custom.sass */
 #error_explanation {
   width: 400px;
   border: 2px solid red;
@@ -177,7 +309,7 @@ ul.microposts li {
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 128, sass/custom.sass */
+/* line 225, sass/custom.sass */
 #error_explanation h2 {
   text-align: left;
   font-weight: bold;
@@ -187,45 +319,45 @@ ul.microposts li {
   background-color: #cc0000;
   color: white;
 }
-/* line 136, sass/custom.sass */
+/* line 233, sass/custom.sass */
 #error_explanation p {
   color: #333333;
   margin-bottom: 0;
   padding: 8px;
 }
-/* line 140, sass/custom.sass */
+/* line 237, sass/custom.sass */
 #error_explanation ul {
   margin: 2px 24px;
 }
-/* line 142, sass/custom.sass */
+/* line 239, sass/custom.sass */
 #error_explanation ul li {
   font-size: 12px;
   list-style: disc;
 }
 
-/* line 146, sass/custom.sass */
+/* line 243, sass/custom.sass */
 .flash {
   padding: 5px 8px;
   margin: 10px 0;
 }
 
-/* line 150, sass/custom.sass */
+/* line 247, sass/custom.sass */
 .notice, .success {
   background-color: #ccffcc;
   border: solid 1px #66cc66;
 }
 
-/* line 154, sass/custom.sass */
+/* line 251, sass/custom.sass */
 .error {
   background-color: #ffcccc;
   border: solid 1px #cc6666;
 }
 
-/* line 158, sass/custom.sass */
+/* line 255, sass/custom.sass */
 ul.users {
   margin-top: 1em;
 }
-/* line 160, sass/custom.sass */
+/* line 257, sass/custom.sass */
 ul.users li {
   list-style: none;
 }

@@ -5,7 +5,14 @@
     %h1
       = gravatar_for @user
       = @user.name
-  %div{:class => "sidebar round"}
+    %ul.microposts
+      - if !@user.microposts.empty?
+        = render @microposts
+        = will_paginate @microposts
+      - else
+        %li
+          %span.content No microposts
+  .sidebar{:class => "round"}
     %ul
       %li
         %strong Name
@@ -16,8 +23,3 @@
       %li
         %strong Microposts
         = @user.microposts.count
-  %ul.microposts
-    - unless @user.microposts.empty?
-      - @user.microposts.each do |mp|
-        %li
-          %span.content= mp.content

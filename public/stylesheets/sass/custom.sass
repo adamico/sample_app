@@ -8,11 +8,14 @@ body
 
 header
   padding-top: 20px
+  .logo
+    float: left
   img
     padding: 1em
     background: #fff
 
 section
+  clear: both
   margin-top: 1em
   font-size: 120%
   padding: 20px
@@ -72,6 +75,7 @@ a.signup_button
 
 // Footer
 footer
+  clear: both
   text-align: center
   margin-top: 10px
   width: 710px
@@ -83,6 +87,7 @@ footer
 
 // User show page
 .profile
+  overflow-x: auto
   margin-bottom: 0
   img.gravatar
     border: 1px solid #999
@@ -102,9 +107,101 @@ footer
     list-style: none
 
 ul.microposts
+  margin-top: 1em
   clear: both
   li
+    border-top: 1px solid #ccc
+    padding-top: 10px
     list-style: none
+    position: relative
+    span
+      &.gravatar
+        display: block
+        position: absolute
+        height: 50px
+        left: 0px
+        width: 50px
+        overflow: hidden
+      &.micropost
+        display: block
+        margin-left: 56px
+        min-height: 48px
+        width: 200px
+        overflow: visible
+        font-size: .8em
+        .user
+          font-weight: bold
+        .timestamp
+          display: block
+          font-size: small
+          margin-top: 2px
+          color: #666
+      &.delete_link
+        float: right
+        display: block
+        position: absolute
+        right: 0px
+        bottom: 2px
+        height: auto
+        overflow: visible
+        font-size: small
+    ul.inline
+      position: relative
+      li
+        border-top: 0px
+        display: inline-block
+        span.timestamp
+          display: block
+          font-size: 85%
+          color: #666
+        &.delete_link
+          position: absolute
+          bottom: 0
+          right: 1px
+          padding-left: 1em
+          border-top: 0px
+
+.pagination
+  clear: both
+
+// home page
+.front
+  overflow-x: auto
+  width: 100%
+
+h1.micropost
+  margin-bottom: 0.3em
+
+ul.feeds
+  li
+    list-style: none
+    display: inline-block
+    border-top: 1px solid #ccc
+
+ul.feed_item
+  li
+    list-style: none
+    display: inline-block
+    border: none
+
+
+.user_info
+  img
+    padding-right: 0.1em
+  a
+    text-decoration: none
+    @feed_items = []
+  span.user_name
+    position: absolute
+  span.microposts
+    font-size: 80%
+
+// micropost form
+form.new_micropost
+  margin-bottom: 2em
+  textarea
+    height: 4em
+    margin-bottom: 0
 
 // Other stuff
 .field, .actions

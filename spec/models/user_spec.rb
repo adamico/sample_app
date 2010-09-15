@@ -123,4 +123,20 @@ describe User do
       end
     end
   end
+
+  describe "#feed" do
+    before(:each) do
+      @user = Factory(:user)
+      mp1 = Factory(:micropost, :user => @user)
+      mp2 = Factory(:micropost, :user => @user)
+      @mps = [mp1, mp2]
+    end
+    
+    it "should exist" do
+      @user.should respond_to(:feed)
+    end
+    it "should include the user's microposts" do
+      @user.feed.include?(@mps.first).should be_true
+    end
+  end
 end

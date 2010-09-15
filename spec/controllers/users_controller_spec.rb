@@ -4,38 +4,55 @@ describe UsersController do
   render_views
 
   describe "GET 'show'" do
-    before(:each) do
-      @user = Factory(:user)
-      get :show, :id => @user
-    end
-
-    it "should be successful" do
-      response.should be_success
-    end
-
-    it "should find the right user" do
-      assigns(:user).should == @user
-    end
-
-    it "should have the right title" do
-      response.should have_selector("title", :content => @user.name)
-    end
-
-    it "should include the user's name" do
-      response.should have_selector("h1", :content => @user.name)
-    end
-
-    it "should have a profile image" do
-      response.should have_selector("h1>img", :class => "gravatar")
-    end
-
-    context "when user#microposts count is > 0" do
-      it "should show the user's microposts" do
-        mp1 = Factory(:micropost, :user => user, :content => "Foo bar")
-        mp2 = Factory(:micropost, :user => user, :content => "Baz quux")
+    context "when no user is signed in" do
+      it "should redirect to the signin page" do
+        user = Factory(:user)
         get :show, :id => user
-        response.should have_selector("span.content", :content => mp1.content)
-        response.should have_selector("span.content", :content => mp2.content)
+        response.should redirect_to(signin_path)
+      end
+    end
+    context "when a user is signed in" do
+      before(:each) do
+        @user = Factory(:user)
+        test_sign_in(@user)
+        get :show, :id => @user
+      end
+
+      it "should be successful" do
+        response.should be_success
+      end
+
+      it "should find the right user" do
+        assigns(:user).should == @user
+      end
+
+      it "should have the right title" do
+        response.should have_selector("title", :content => @user.name)
+      end
+
+      it "should include the user's name" do
+        response.should have_selector("h1", :content => @user.name)
+      end
+
+      it "should have a profile image" do
+        response.should have_selector("h1>img", :class => "gravatar")
+      end
+
+      context "if any user#microposts exist" do
+        it "should show the user's microposts" do
+          mp1 = Factory(:micropost, :user => @user, :content => "Foo bar")
+          mp2 = Factory(:micropost, :user => @user, :content => "Baz quux")
+          get :show, :id => @user
+          response.should have_selector("span.content", :content => mp1.content)
+          response.should have_selector("span.content", :content => mp2.content)
+        end
+      end
+
+      context "if user#microposts is empty" do
+        it "should print 'no microposts'" do
+          response.should have_selector("span.content",
+                                        :content => "No microposts")
+        end
       end
     end
   end
