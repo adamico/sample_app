@@ -1,0 +1,7 @@
+- title @title, false
+
+%h1 Microposts for #{@user.name}
+
+- unless @user.microposts.empty?
+  %ul.microposts
+    = render @microposts
