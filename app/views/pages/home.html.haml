@@ -1,17 +1,5 @@
 - title @title, false
 - if signed_in?
-  .front
-    .main
-      %h1.micropost What's up?
-      = render 'shared/micropost_form'
-      = render 'shared/feed'
-    .sidebar{:class => "round"}
-      = render 'shared/user_info'
+  = render 'pages/authenticated_home'
 - else
-  %h1 Sample App
-  %p 
-    This is the home page for the
-    %a{:href  => "http://railstutorial.org/"} Ruby on Rails Tutorial
-    sample application.
-
-  %p= link_to "Sign up now!", signup_path, :class => "signup_button round"
+  = render 'pages/guest_home'

@@ -1,0 +1,7 @@
+.front
+  .main
+    %h1.micropost What's up?
+    = render 'shared/micropost_form'
+    = render 'shared/feed'
+  .sidebar{:class => "round"}
+    = render 'shared/user_info'
