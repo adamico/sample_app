@@ -2,17 +2,11 @@
 
 .profile
   .main
-    %h1
-      = gravatar_for @user
-      = @user.name
-    = render 'follow_form' if signed_in?
-    %ul.microposts
-      - if !@user.microposts.empty?
-        = render @microposts
-        = will_paginate @microposts
-      - else
-        %li
-          %span.content No microposts
+    %h1= @title
+
+    - unless @users.empty?
+      %ul.users= render @users
+      = will_paginate @users
 
   .sidebar.round
     %ul
@@ -26,3 +20,6 @@
         %strong Microposts
         = @user.microposts.count
     = render 'shared/stats'
+    - unless @users.empty?
+      - @users.each do |user|
+        = link_to gravatar_for(user, :size => 30), user

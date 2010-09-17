@@ -6,16 +6,41 @@ describe PagesController do
   before(:each) do
     @base_title = "Ruby on Rails Tutorial Sample App"
   end
+
   describe "GET 'home'" do
-    it "should be successful" do
-      get 'home'
-      response.should be_success
+    context "when not signed in" do
+      it "should be successful" do
+        get :home
+        response.should be_success
+      end
+
+      it "should have the right title" do
+        get :home
+        response.should have_selector("title",
+          :content => @base_title + " | Home")
+      end
     end
 
-    it "should have the right title" do
-      get 'home'
-      response.should have_selector("title",
-        :content => @base_title + " | Home")
+    context "when signed in" do
+      let(:user) {test_sign_in(Factory(:user))}
+      let(:other_user) { Factory(:user)}
+      before(:each) do
+        other_user.follow!(user)
+      end
+
+      it "should have the right following counts" do
+        get :home
+        response.should have_selector("a",
+          :href => following_user_path(user),
+          :content => "0 following")
+      end
+
+      it "should have the right followers counts" do
+        get :home
+        response.should have_selector("a",
+          :href => followers_user_path(user),
+          :content => "1 followers")
+      end
     end
   end
 

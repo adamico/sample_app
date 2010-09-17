@@ -139,4 +139,70 @@ describe User do
       @user.feed.include?(@mps.first).should be_true
     end
   end
+
+  describe "#relationships" do
+    subject { Factory(:user) }
+
+    let(:followed) { Factory(:user)}
+
+    it "should have a #relationships method" do
+      subject.should respond_to(:relationships)
+    end
+
+    it "relationships should be destroyed when user is" do
+      subject.relationships.create(:followed => followed)
+      subject.destroy
+      expect do
+        Relationship.find(subject.id).should be_nil
+      end.should raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it "should have a following method" do
+      subject.should respond_to(:following)
+    end
+
+    it "should have a following? method" do
+      subject.should respond_to(:following?)
+    end
+
+    it "should have a follow! method" do
+      subject.should respond_to(:follow!)
+    end
+
+    it "should follow another user" do
+      subject.follow!(followed)
+      subject.should be_following(followed)
+    end
+
+    it "should have an unfollow! method" do
+      subject.should respond_to(:unfollow!)
+    end
+
+    it "should follow another user" do
+      subject.follow!(followed)
+      subject.unfollow!(followed)
+      subject.should_not be_following(followed)
+    end
+
+    it "should have a reverse_relationships method" do
+      subject.should respond_to(:reverse_relationships)
+    end
+
+    it "should have a followers method" do
+      subject.should respond_to(:followers)
+    end
+
+    it "should include the follower in the #followers array" do
+      subject.follow!(followed)
+      followed.followers.include?(subject).should be_true
+    end
+
+    it "reverse_relationships should be destroyed when user is" do
+      subject.follow!(followed)
+      followed.destroy
+      expect do
+        Relationship.find(followed.id).should be_nil
+      end.should raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end
