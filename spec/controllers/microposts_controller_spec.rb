@@ -15,20 +15,6 @@ describe MicropostsController do
     end
   end
 
-  describe "GET 'index'" do
-    before(:each) do
-      @user = test_sign_in(Factory(:user))
-    end
-    
-    describe "when accessing #index from user resource" do
-      it "should list user microposts" do
-        2.times{@user.microposts.create(:content => "content")}
-        get "/users/#{@user.id}/microposts"
-        response.should have_selector("ul.microposts")
-        response.should have_selector("span.content", :content => "content")
-      end
-    end
-  end
 
   describe "POST 'create'" do
     before(:each) do

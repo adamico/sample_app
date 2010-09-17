@@ -1,6 +1,6 @@
 %li
   %span.micropost
-    %span.content= micropost.content
+    %span.content= wrap(micropost.content)
     %span.timestamp #{time_ago_in_words(micropost.created_at)} ago.
   - user = micropost.user rescue User.find(micropost.user_id)
   - if current_user?(micropost.user)

@@ -3,21 +3,6 @@ require 'spec_helper'
 describe UsersController do
   render_views
 
-  describe "GET ':id/microposts'" do
-    before(:each) do
-      @user = test_sign_in(Factory(:user))
-    end
-    
-    describe "when accessing #index from user resource" do
-      it "should list user microposts" do
-        2.times{@user.microposts.create(:content => "content")}
-        visit user_microposts_path(@user)
-        response.should have_selector("ul.microposts")
-        response.should have_selector("span.content", :content => "content")
-      end
-    end
-  end
-
   describe "GET 'show'" do
     context "when no user is signed in" do
       it "should redirect to the signin page" do

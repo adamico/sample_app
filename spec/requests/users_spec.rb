@@ -2,23 +2,6 @@ require 'spec_helper'
 
 describe "Users" do
   
-  describe "accessing user microposts with user/:id/microposts" do
-    before(:each) do
-      @user = Factory(:user)
-      integration_sign_in(@user)
-      2.times{@user.microposts.create(:content => "content")}
-    end
-    
-    describe "when accessing #index from user resource" do
-      it "should list user microposts" do
-        visit user_microposts_path(@user)
-        response.should have_selector("ul.microposts")
-        response.should have_selector("span.content", :content => "content")
-      end
-    end
-  end
-
-  describe "signup" do
     context "failure" do
       it "should not make a new user" do
         lambda do
