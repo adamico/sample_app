@@ -1,13 +1,16 @@
 # == Schema Information
-# Schema version: 20100908101359
+# Schema version: 20100917115459
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
 #
 
 require 'digest'
@@ -54,7 +57,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Micropost.where(:user_id => id)
+    Micropost.from_users_followed_by(self)
   end
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
